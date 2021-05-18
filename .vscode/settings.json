@@ -1,0 +1,19 @@
+{
+    "psi-header.config": {
+      "forceToTop": true,
+      "blankLinesAfter": 1,
+      "author": "Kristyna Fojtikova",
+      "authorEmail": "fojtik.kristyna@gmail.com",
+  },
+    "psi-header.templates": [
+        {
+          "language": "*",
+    "template": [
+            "Created Date: <<filecreated('ddd, Do MMM YYYY, HH:mm:ss a')>>",
+            "Author: <<author>>",
+            "Email: <<authoremail>>",
+            "Copyright (c) <<year>> <<author>>"
+        ]
+    }
+    ],
+}
