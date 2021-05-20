@@ -5,10 +5,11 @@
  * Copyright (c) 2021 Kristyna Fojtikova
  */
 
-import { executeStockInput } from '../src/executeStockInput';
+import { executeStockInput } from '../src/executeStockInput/executeStockInput';
 import fs from 'fs';
 import path from 'path';
-import { executeStockInputInputII } from '../src/executeStockInputII';
+import { executeStockInputInputV2 } from '../src/executeStockInputV2/executeStockInputV2';
+import { executeStockInputInputV3 } from '../src/executeStockInputV3/executeStockInputV3';
 
 describe('Execute stock input', () => {
   test('receive valid output', () => {
@@ -26,7 +27,7 @@ describe('Execute stock input', () => {
     const input = fs.readFileSync(inputFilePath, 'utf8');
     const output = fs.readFileSync(outputFilePath, 'utf8');
 
-    expect(executeStockInputInputII(input)).toEqual(output);
+    expect(executeStockInputInputV3(input)).toEqual(output);
     // expect(executeStockInput(input)).toEqual(output);
   });
 });

@@ -13,38 +13,18 @@ import {
   StockCommand,
   StockExecutable,
 } from '../models/stockActionModel';
+import { commandRegex, separatorRegex } from '../util/Regex';
 import {
-  commandRegex,
-  numbersRegex,
-  separatorRegex,
-} from '../util/Regex';
+  parseStringToCommand,
+  toNumber,
+} from '../util/stringUtilFunctions';
 
-function splitInput(text: string) {
+function splitIntoWords(text: string) {
   return text.split(separatorRegex);
 }
 
-const parseStringToCommand = (string: string): StockCommand => {
-  switch (string) {
-    case 'set-stock':
-      return StockCommand.SET;
-    case 'add-stock':
-      return StockCommand.ADD;
-    case 'order':
-      return StockCommand.ORDER;
-    default:
-      throw Error('Invalid input');
-  }
-};
-
-function toNumber(x: string) {
-  if (!numbersRegex.test(x)) {
-    throw Error('Invalid Input');
-  }
-  return parseInt(x, 10);
-}
-
 export function parseInput(input: string): StockAction[] {
-  const values = splitInput(input);
+  const values = splitIntoWords(input);
 
   // temporary values
   let command = '';

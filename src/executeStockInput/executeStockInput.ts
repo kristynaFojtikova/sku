@@ -6,9 +6,12 @@
  */
 
 import * as R from 'ramda';
-import { parseInput } from './functions/parseInput';
-import { StockAction, StockCommand } from './models/stockActionModel';
-import { Stock, StockValue } from './models/stockModel';
+import { parseInput } from './parseInput';
+import {
+  StockAction,
+  StockCommand,
+} from '../models/stockActionModel';
+import { Stock, StockValue } from '../models/stockModel';
 
 // NOTE: - First version, very typed & more robust
 
